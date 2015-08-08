@@ -112,7 +112,6 @@ class Game
     puts "One more round? (yes/no)"
     answer = gets.chomp.downcase
     play unless (answer == 'no')
-    puts "Bye"
   end
 
   def play
@@ -128,10 +127,10 @@ class Game
         break
       else
         alternate_player
-      end    
+      end     
     end
-
-    puts "Have Fun!"
+    @board = Board.new
+    play_again 
   end
 end
 
