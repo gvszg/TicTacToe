@@ -116,6 +116,13 @@ class Game
     end
   end
 
+  def play_again
+    puts "One more round? (yes/no)"
+    answer = gets.chomp.downcase
+    play unless (answer == 'no')
+    puts "Bye"
+  end
+
   def play
     @board.draw
     loop do 
@@ -123,13 +130,15 @@ class Game
       @board.draw
       if current_player_win?
         puts "The winner is #{@current_player.name}!"
-        break
+        next
+        play_again
       elsif @board.all_squares_marked?
         puts "It's a tie!"
-        break
+        next
+        play_again
       else
         alternate_player
-      end      
+      end    
     end
 
     puts "Have Fun!"
