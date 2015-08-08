@@ -122,12 +122,10 @@ class Game
       @board.draw
       if current_player_win?
         puts "The winner is #{@current_player.name}!"
-        next
-        play_again
+        break
       elsif @board.all_squares_marked?
         puts "It's a tie!"
-        next
-        play_again
+        break
       else
         alternate_player
       end    
