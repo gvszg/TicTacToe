@@ -27,7 +27,6 @@ class Board
     @data.select {|_, square| square.value == ' '}.values
   end
 
-  # ???
   def empty_positions
     @data.select {|_, square| square.empty?}.keys
   end
@@ -59,7 +58,6 @@ class Square
     @value != ' '
   end
 
-  # ???
   def empty?
     @value == ' '
   end
@@ -83,12 +81,9 @@ class Game
     @board = Board.new
     @human = Player.new("You", "X")
     @computer = Player.new("RX78", "O")
-    
-    # ???
     @current_player = @human
   end
 
-  # ???
   def current_player_marks_square 
     if @current_player == @human
       begin
@@ -105,11 +100,8 @@ class Game
     @board.winning_condition?(@current_player.marker)
   end
 
-  # ???
   def alternate_player
     if @current_player == @human
-      
-      # ???
       @current_player = @computer
     else
       @current_player = @human
